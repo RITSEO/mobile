@@ -28,10 +28,12 @@ Ext.application({
 	],
 
 	models:[
-		'Job'
+		'Job',
+		'JobListItem'
 	],
 
 	stores:[
+		'Job',
 		'Jobs'
 	],
 

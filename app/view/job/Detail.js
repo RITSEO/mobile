@@ -3,6 +3,18 @@ Ext.define('seo-mobile.view.job.Detail', {
 	alias: 'widget.jobDetail',
 
 	config: {
-		tpl: '{job_title}'
+		layout: {
+			type: 'card'
+		},
+		items: [
+			{
+				docked: 'top',
+				xtype: 'titlebar',
+				title: 'JOB TITLE'
+			},
+			{
+				
+			}
+		]
 	}
 });

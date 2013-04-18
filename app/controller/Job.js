@@ -11,32 +11,24 @@ Ext.define('seo-mobile.controller.Job', {
 		
 		routes: {
 			'': 'index',
-			'/job/:id': 'detail'
-		},
-		
-		refs: {
-			
+			'job/:id': 'detail'
 		}
 	},
 
 	/**
 	 *	Fired on the initialization
 	 */
-	launch: function() {
-		// console.log( "I LAUNCHED" );
-	},
+	launch: function() {},
 
 	/**
 	 *  List all jobs on campus
 	 */
-	index: function() {
-		console.log( "Hello I'm a Main" );
-	},
+	index: function() {},
 
 	/**
 	 *  Detail a particular job
 	 */
 	detail: function( id ) {
-		console.log( "Hello I'm a Detail" );
+		console.log( id );
 	}
 });
