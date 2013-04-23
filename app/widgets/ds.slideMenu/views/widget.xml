@@ -1,0 +1,13 @@
+<Alloy>
+	<Window id="leftMenu">
+		<TableView id="tableView" />
+	</Window>
+	<Window id="win">
+		<View id="shadowview">
+			<NavigationGroup id="nav">
+				<Window id="innerwin"></Window>
+			</NavigationGroup>
+			<Button id="button" />
+		</View>
+	</Window>
+</Alloy>

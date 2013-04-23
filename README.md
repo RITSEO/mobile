@@ -1,4 +1,0 @@
-mobile
-======
-
-SEO Mobile Application
