@@ -8,19 +8,25 @@ Alloy.Globals.getCategories(
 		var section = Ti.UI.createTableViewSection();
 
 		// Add a list item for all jobs at the top
-		section.add(Alloy.createController('menurow', {
-			code: null,
-			title: 'All Jobs'
-		}).getView());
+		section.add(
+			Alloy.createController('category', {
+				code: null,
+				label: 'All Jobs'
+			}).getView()
+		);
 
 		// Loop through the results
 		for( x in results ) {
+			// Create a set of arguments
 			var args = {
 				code: x,
-				title: results[x]
+				label: results[x]
 			};
 			
-			section.add(Alloy.createController('menurow', args).getView());
+			// Add the list item
+			section.add(
+				Alloy.createController('category', args).getView()
+			);
 		}
 		
 		// Push the data onto the section
@@ -31,20 +37,14 @@ Alloy.Globals.getCategories(
 	}
 );
 
-// Maintain the current view
-var currentView = $.ds.innerwin;
+// Create a reference to the inner window
+Alloy.Globals.ds = $.ds;
 
-console.log( currentView );
+// Store the current view
+Alloy.Globals.currentView = Alloy.createController("jobList").getView(); 
 
-// Swap views on menu item click
-$.ds.tableView.addEventListener('click', function selectRow(e) {
-	if (currentView.id != e.row.customView) {
-		$.ds.innerwin.remove(currentView);
-		currentView = Alloy.createController(e.row.customView).getView();
-		$.ds.innerwin.add(currentView);
-	}
-	$.ds.toggleSlider();
-});
+// Add the view to the inner window
+$.ds.innerwin.add( Alloy.Globals.currentView );
 
 // Open the window
 $.win.open();

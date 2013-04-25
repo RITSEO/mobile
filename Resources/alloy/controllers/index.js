@@ -18,30 +18,23 @@ function Controller() {
     var data = [];
     Alloy.Globals.getCategories(function(results) {
         var section = Ti.UI.createTableViewSection();
-        section.add(Alloy.createController("menurow", {
+        section.add(Alloy.createController("category", {
             code: null,
-            title: "All Jobs"
+            label: "All Jobs"
         }).getView());
         for (x in results) {
             var args = {
                 code: x,
-                title: results[x]
+                label: results[x]
             };
-            section.add(Alloy.createController("menurow", args).getView());
+            section.add(Alloy.createController("category", args).getView());
         }
         data.push(section);
         $.ds.tableView.data = data;
     });
-    var currentView = $.ds.innerwin;
-    console.log(currentView);
-    $.ds.tableView.addEventListener("click", function(e) {
-        if (currentView.id != e.row.customView) {
-            $.ds.innerwin.remove(currentView);
-            currentView = Alloy.createController(e.row.customView).getView();
-            $.ds.innerwin.add(currentView);
-        }
-        $.ds.toggleSlider();
-    });
+    Alloy.Globals.ds = $.ds;
+    Alloy.Globals.currentView = Alloy.createController("jobList").getView();
+    $.ds.innerwin.add(Alloy.Globals.currentView);
     $.win.open();
     _.extend($, exports);
 }

@@ -7,7 +7,7 @@
 "#win": {
 	left: "0dp",
 	zIndex: "10",
-	backgroundColor : 'white',
+	backgroundColor : 'white'
 },
 "#innerwin": {
 	backgroundColor : 'white',

@@ -4,17 +4,18 @@ function Controller() {
     arguments[0] ? arguments[0]["$model"] : null;
     var $ = this;
     var exports = {};
-    $.__views.view2 = Ti.UI.createWindow({
-        id: "view2"
+    $.__views.jobList = Ti.UI.createView({
+        backgroundColor: "white",
+        id: "jobList"
     });
-    $.__views.view2 && $.addTopLevelView($.__views.view2);
-    $.__views.__alloyId3 = Ti.UI.createLabel({
-        text: "View 2",
-        id: "__alloyId3"
+    $.__views.jobList && $.addTopLevelView($.__views.jobList);
+    $.__views.jobList = Ti.UI.createTableView({
+        id: "jobList"
     });
-    $.__views.view2.add($.__views.__alloyId3);
+    $.__views.jobList.add($.__views.jobList);
     exports.destroy = function() {};
     _.extend($, $.__views);
+    arguments[0] || {};
     _.extend($, exports);
 }
 

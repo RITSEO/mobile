@@ -8,11 +8,11 @@ function Controller() {
         id: "view1"
     });
     $.__views.view1 && $.addTopLevelView($.__views.view1);
-    $.__views.__alloyId1 = Ti.UI.createLabel({
+    $.__views.__alloyId2 = Ti.UI.createLabel({
         text: "View 1",
-        id: "__alloyId1"
+        id: "__alloyId2"
     });
-    $.__views.view1.add($.__views.__alloyId1);
+    $.__views.view1.add($.__views.__alloyId2);
     exports.destroy = function() {};
     _.extend($, $.__views);
     _.extend($, exports);
